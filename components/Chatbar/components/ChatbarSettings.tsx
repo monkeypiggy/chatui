@@ -5,6 +5,8 @@ import { useTranslation } from 'next-i18next';
 
 import HomeContext from '@/pages/api/home/home.context';
 
+import { ChargeDialog } from '@/components/Settings/ChargeDialog';
+
 import { SettingDialog } from '@/components/Settings/SettingDialog';
 
 import { Import } from '../../Settings/Import';
