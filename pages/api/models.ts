@@ -64,7 +64,8 @@ const handler = async (req: Request): Promise<Response> => {
 
     return new Response(JSON.stringify(models), { status: 200 });
   } catch (error) {
-    console.error(error);
+    console.error("error: "+error);
+    
     console.error("key: " + process.env.OPENAI_API_KEY);
     return new Response('Error', { status: 500 });
   }
