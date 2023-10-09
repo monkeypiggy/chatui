@@ -51,6 +51,12 @@ export const ChatbarSettings = () => {
       />
 
       <SidebarButton
+        text={t('充值')}
+        icon={<IconFileExport size={18} />}
+        onClick={() => handleExportData()}
+      />
+
+      <SidebarButton
         text={t('Settings')}
         icon={<IconSettings size={18} />}
         onClick={() => setIsSettingDialog(true)}
