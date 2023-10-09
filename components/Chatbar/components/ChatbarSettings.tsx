@@ -17,6 +17,7 @@ import { PluginKeys } from './PluginKeys';
 export const ChatbarSettings = () => {
   const { t } = useTranslation('sidebar');
   const [isSettingDialogOpen, setIsSettingDialog] = useState<boolean>(false);
+  const [isChargeDialogOpen, setIsChargeDialog] = useState<boolean>(false);
 
   const {
     state: {
@@ -53,7 +54,7 @@ export const ChatbarSettings = () => {
       <SidebarButton
         text={t('Charge')}
         icon={<IconSettings size={18} />}
-        onClick={() => setIsSettingDialog(true)}
+        onClick={() => setIsChargeDialog(true)}
       />
 
       <SidebarButton
@@ -72,6 +73,13 @@ export const ChatbarSettings = () => {
         open={isSettingDialogOpen}
         onClose={() => {
           setIsSettingDialog(false);
+        }}
+      />
+      
+      <ChargeDialog
+        open={isChargeDialogOpen}
+        onClose={() => {
+          setIsChargeDialog(false);
         }}
       />
     </div>
