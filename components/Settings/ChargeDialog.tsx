@@ -48,9 +48,32 @@ export const ChargeDialog: FC<Props> = ({ open, onClose }) => {
     saveSettings(state);
   };
   
-  const handleCharge = () => {
-    const url = "https://api.xunhupay.com/payments/wechat/index?id=20237993542&nonce_str=0856619818&time=1696881580&appid=201906159830&hash=1fa2b1f51c6a38edb21be094ad8acfcf";
-    window.location.href = url;
+  // const handleCharge = () => {
+  //   http://47.254.77.17:5000/api/charge
+    
+  //   const url = "https://api.xunhupay.com/payments/wechat/index?id=20237993542&nonce_str=0856619818&time=1696881580&appid=201906159830&hash=1fa2b1f51c6a38edb21be094ad8acfcf";
+  //   window.location.href = url;
+  // };
+  
+  const handleCharge = async () => {
+    try {
+        const response = await fetch("http://47.254.77.17:5000/api/charge");
+        
+        if (!response.ok) {
+            throw new Error("Failed to fetch the charge API");
+        }
+
+        const data = await response.json();
+        const redirectUrl = data.url;
+
+        if (redirectUrl) {
+            window.location.href = redirectUrl;
+        } else {
+            console.error("URL not found in the response");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    }
   };
 
   // Render nothing if the dialog is not open.
