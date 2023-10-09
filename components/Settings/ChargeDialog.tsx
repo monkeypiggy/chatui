@@ -43,9 +43,14 @@ export const ChargeDialog: FC<Props> = ({ open, onClose }) => {
     };
   }, [onClose]);
 
-  const handleSave = () => {
+  const handleSave = () => {  
     homeDispatch({ field: 'lightMode', value: state.theme });
     saveSettings(state);
+  };
+  
+  const handleCharge = () => {
+    const url = "https://api.xunhupay.com/payments/wechat/index?id=20237993542&nonce_str=0856619818&time=1696881580&appid=201906159830&hash=1fa2b1f51c6a38edb21be094ad8acfcf";
+    window.location.href = url;
   };
 
   // Render nothing if the dialog is not open.
@@ -91,7 +96,7 @@ export const ChargeDialog: FC<Props> = ({ open, onClose }) => {
               type="button"
               className="w-full px-4 py-2 mt-6 border rounded-lg shadow border-neutral-500 text-neutral-900 hover:bg-neutral-100 focus:outline-none dark:border-neutral-800 dark:border-opacity-50 dark:bg-white dark:text-black dark:hover:bg-neutral-300"
               onClick={() => {
-                handleSave();
+                handleCharge();
                 onClose();
               }}
             >
