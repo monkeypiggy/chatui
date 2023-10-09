@@ -57,7 +57,7 @@ export const ChargeDialog: FC<Props> = ({ open, onClose }) => {
   
   const handleCharge = async () => {
     try {
-        const response = await fetch("http://47.254.77.17:5000/api/charge");
+        const response = await fetch("https://pay.chatui.site/api/charge");
         
         if (!response.ok) {
             throw new Error("Failed to fetch the charge API");
