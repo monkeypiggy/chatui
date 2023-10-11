@@ -45,6 +45,12 @@ export const ChatbarSettings = () => {
         <ClearConversations onClearConversations={handleClearConversations} />
       ) : null}
 
+      <SidebarButton
+        text={t('积分：1.0')}
+        icon={<IconSettings size={18} />}
+        onClick={() => setIsChargeDialog(true)}
+      />
+
       <Import onImport={handleImportConversations} />
 
       <SidebarButton
